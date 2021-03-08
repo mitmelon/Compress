@@ -25,13 +25,13 @@ $compress = new Compress\Compress;
  * Path to output compressed binary file to
  *
  */
-$compress::compressFile($filePath, $storePath);
+$compress::compressFile($filePath, $storePath, $removeMeta);
 
 //Compress Image file
-$compress::compressFile(__DIR__.'/image.png', __DIR__.'/image.txt'));
+$compress::compressFile(__DIR__.'/image.png', __DIR__.'/image.txt', true));
 
 // Compress PDF
-$compress::compressFile(__DIR__.'/file.pdf', __DIR__.'/file.txt'));
+$compress::compressFile(__DIR__.'/file.pdf', __DIR__.'/file.txt', true));
 //Compress as lot files you want including zip files
 
 /**
