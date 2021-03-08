@@ -3,37 +3,64 @@ namespace Compress;
 /**
  * Compresses files including zip, image, pdf and lots more
  *
-  * @link https://mitnets.com for Programming Tutorials
- *  @author Mitnets Technologies <support@mitnets.com>
- *  @version 1.0.0
+  * @link https://manomiteblog.com for Programming Tutorials
+ *  @author Manomite <manomitehq@gmail.com>
+ *  @version 1.0.1
  */
 class Compress
 {
-    public static function compressor($content)
+     /**
+     * Text compress
+     *
+     * @param String $content
+     */
+    public static function compressor(String $content)
     {
         return gzcompress($content);
     }
-    //Uncompress Content
-    public static function uncompressor($content)
+   /**
+     * Decompress Text
+     *
+     * @param String $content
+     */
+    public static function uncompressor(String $content)
     {
         return gzuncompress($content);
     }
-    //Add file to existing zip dir
-
-    public static function compressFile($filePath, $storePath)
+    /**
+     * File Compresser
+     *
+     * @param String $filePath
+     * @param String $storePath
+     * @param Bolean $removeMeta
+     */
+    public static function compressFile(String $filePath, String $storePath, $removeMeta = false)
     {
-        //experimental version 1.0.0
+       
         try {
-            $file = fopen($filePath, "rb");
-            $contents = self::compressor(serialize(fread($file, filesize($filePath))));
-            file_put_contents($storePath, $contents);
+            $file = @fopen($filePath, "rb");
+            $content = fread($file, filesize($filePath));
+             //Meta heads are removed in new version which cannot be reversed
+            if ($removeMeta) {
+                $replace    = '@<meta[^>]*?>';
+                $with       = ' ';
+                $content    = str_replace($replace, $with, $content);
+                $content    = preg_replace("/$replace/", $with, $content);
+            }
+            $content    = self::compressor(serialize($content));
             fclose($file);
+            file_put_contents($storePath, $content);
             return true;
         } catch (\Extension $e) {
             return $e->getMessage();
         }
     }
-
+   /**
+     * File DeCompresser
+     *
+     * @param String $fileInputPath
+     * @param String $fileOutputPath
+     */
     public static function uncompressFile($fileInputPath, $fileOutputPath)
     {
         try {
