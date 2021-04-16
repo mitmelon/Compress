@@ -1,64 +1,18 @@
-# Compress
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fmitmelon%2FCompress.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fmitmelon%2FCompress?ref=badge_shield)
+---
+description: GuardTor Complete Documentation
+---
 
- Advanced file compresser which reduces large files to smaller chunks by saving them as binary for later use. Many applications supports file uploads which consumes large memory sizes on their systems. This library has been designed to reduce both zip, rar, images, pdf, words sizes or any kinds of files or documents into smaller pieces.
+# Introduction
 
-## Install:
-Use composer to install
-```php
-composer require mitmelon/compress
-```
+GuardTor is a sophisticated PHP library for protecting your application against bad bots, scrappers, anonymous access from tor browsers, strong user input validations, prevent DDOS Attacks and lots more features to come.
 
-## Usage :
+Prevent your shinny works from web scrappers and DDOS attacks by limiting and blocking malicious requests and anonymous users.
 
-```php
-require_once __DIR__."/vendor/autoload.php";
+If you have any feature you think we need to add or find a bug please kindly make a request.
 
-// Initialize library class
-$compress = new Compress\Compress;
+You can also support us by buying us a coffee at [https://www.buymeacoffee.com/mitm](https://www.buymeacoffee.com/mitm)
 
-/**
- * @param $filePath string
- * File location to be compressed
- *
- * @param $storePath string
- * Path to output compressed binary file to
- *
- */
-$compress::compressFile($filePath, $storePath, $removeMeta);
+{% page-ref page="./" %}
 
-//Compress Image file
-$compress::compressFile(__DIR__.'/image.png', __DIR__.'/image.txt', true));
 
-// Compress PDF
-$compress::compressFile(__DIR__.'/file.pdf', __DIR__.'/file.txt', true));
-//Compress as lot files you want including zip files
 
-/**
- * UnCompress Image file [Get original file back from stored binary]
- * @param $storePath string
- * Path containing binary file which was compressed
- *
- * @param $fileOutputPath string
- * Path to output original file to
- *
- */
-$compress::uncompressFile($storePath, $fileOutputPath);
-
-//Uncompress Image
-$compress::uncompressFile(__DIR__.'/image.txt', __DIR__.'/image.png');
-
-// Uncompress PDF
-$compress::uncompressFile( __DIR__.'/file.txt', __DIR__.'/file.pdf')
-
-```
-
-# Future Update
-
-Adding binary file encryptions for security purposes.
-
-# License
-
-Released under the MIT license.
-
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fmitmelon%2FCompress.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fmitmelon%2FCompress?ref=badge_large)
