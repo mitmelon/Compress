@@ -80,6 +80,7 @@ When you upgrade, consider updating compressFile() parameter. The third argument
 If you love my project and wish to assist me to keep working on this project. Below is my Wallet Address.
 
 BTC Wallet : 14PAtDFHTwH6SWdhGXRHGWDWYWDgVfHr6R
+
 ETH Wallet : 0x8c26549052667A0b77327505D2Ea1fe4c207630e
 
 If you donated, please send me a mail at manomitehq@gmail.com with your name so I can list you here among my supporters
