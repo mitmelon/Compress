@@ -51,15 +51,17 @@ class Compress
      *
      * @param String $filePath
      * @param String $storePath
-     * @param Array $options ["removeMeta" => false, "encrypt" => false, "key" => "password"]
+     * @param Mixed $options ["removeMeta" => false, "encrypt" => false, "key" => "password"]
      */
-    public static function compressFile(String $filePath, String $storePath, array $options = [])
+    public static function compressFile(String $filePath, String $storePath, Mixed $options = [])
     {
         try {
+            
+            $encrypt_key = NULL;
             $file = @fopen($filePath, "rb");
             $content = fread($file, filesize($filePath));
             //Check if option is not empty
-            if (!empty($options)) {
+            if (!empty($options) and is_array($options)) {
                 //Meta heads are removed in new version which cannot be reversed
                 $isMeta = isset($options["removeMeta"]) ? ($options["removeMeta"] === true ? true : false) : false;
                 if ($isMeta) {
@@ -84,7 +86,7 @@ class Compress
                     unlink($d);
                 }
             }
-            $content = $this->compressor(serialize($content));
+            $content = self::compressor(serialize($content));
             fclose($file);
             file_put_contents($storePath, $content);
             //Make sure you store your encryption key for this file if you used the encryption option
@@ -104,7 +106,7 @@ class Compress
     {
         try {
             $file = fopen($fileInputPath, "rb");
-            $contents = unserialize($this->uncompressor(fread($file, filesize($fileInputPath))));
+            $contents = unserialize(self::uncompressor(fread($file, filesize($fileInputPath))));
             //Check if key is given; File might be encrypted
             if(!empty($encrypt_key)){
                 $t = $this->temp.'_'.mt_rand().'.decrypt';
