@@ -52,9 +52,9 @@ class Compress{
      *
      * @param String $filePath
      * @param String $storePath
-     * @param Array $options ["removeMeta" => false, "encrypt" => false, "key" => "password"]
+     * @param Mixed $options ["removeMeta" => false, "encrypt" => false, "key" => "password"]
      */
-    public function compressFile(String $filePath, String $storePath, array $options = [])
+    public function compressFile(String $filePath, String $storePath, Mixed $options = [])
     {
       $encrypt_key = '';
         try {
