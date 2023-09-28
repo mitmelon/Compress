@@ -61,7 +61,7 @@ class Compress{
             $file = @fopen($filePath, "rb");
             $content = fread($file, filesize($filePath));
             //Check if option is not empty
-            if (!empty($options)) {
+            if (!empty($options) && is_array($options)) {
                 //Meta heads are removed in new version which cannot be reversed
                 $isMeta = isset($options["removeMeta"]) ? ($options["removeMeta"] === true ? true : false) : false;
                 if ($isMeta) {
