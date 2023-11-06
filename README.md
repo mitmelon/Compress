@@ -1,4 +1,4 @@
-<h1 align="center"><a href="#" target="_blank"><img src="https://github.com/mitmelon/Compress/assets/55149512/d566ece6-41c3-4d25-9aae-d9bca05570f6" alt="File Compress" /></a></h1>
+<h1 align="center"><a href="#" target="_blank"><img src="https://github.com/mitmelon/Compress/assets/55149512/d566ece6-41c3-4d25-9aae-d9bca05570f6" alt="File Compress" style="width: 400px;" width="400px" /></a></h1>
 
 # Compress
 
