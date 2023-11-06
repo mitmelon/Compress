@@ -48,7 +48,7 @@ $compress::compressFile(__DIR__.'/file.pdf', __DIR__.'/file.txt');
 
 Scan content to get informations such as file's disposition, ranging from malicious (malware, ransomware, trojan horses, spyware, adware) to known good content (operating system files, known third-party software packages) using Pangea's File Intel Service.
 
-To use the Pangea's File Intel Service [![create an account](https://pangea.cloud) and plug your credentials into the options below. Account creation is free. 
+To use the Pangea's File Intel Service [create an account](https://pangea.cloud) and plug your credentials into the options below. Account creation is free. 
 
 ```php
 
